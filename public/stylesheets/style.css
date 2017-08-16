@@ -6,3 +6,18 @@ body {
 a {
   color: #00B7FF;
 }
+
+table {
+  width: 500px;
+  height: 500px;
+  border: 1px solid black;
+}
+thead {
+  font-size: 25px;
+  font-weight: bold;
+  background-color:#A7C942;
+}
+.even{
+  background-color: #EAF2D3;
+}
+

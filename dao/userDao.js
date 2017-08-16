@@ -115,7 +115,15 @@ module.exports = {
 	queryAll: function (req, res, next) {
 		pool.getConnection(function(err, connection) {
 			connection.query($sql.queryAll, function(err, result) {
-				jsonWrite(res, result);
+				console.dir(result);
+				var str = JSON.stringify(result);
+				console.dir(str);
+				var json = JSON.parse(str);
+				console.dir(json);
+				res.render('all-users', {
+					results: json
+				});
+				//jsonWrite(res, result);
 				connection.release();
 			});
 		});
