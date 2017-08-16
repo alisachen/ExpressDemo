@@ -93,8 +93,8 @@ module.exports = {
 		var id = req.query.id; 
 		var sql = $sql.queryById + '('+id+')';
 		pool.getConnection(function(err, connection) {
-			connection.query(sql, function(err, result) {
-				jsonWrite(res, result);
+			connection.query(sql, function(err, results) {
+				jsonWrite(res, results);
 				connection.release();
 			});
 		});
@@ -114,13 +114,13 @@ module.exports = {
 	},
 	queryAll: function (req, res, next) {
 		pool.getConnection(function(err, connection) {
-			connection.query($sql.queryAll, function(err, result) {
-				console.dir(result);
-				var str = JSON.stringify(result);
-				console.dir(str);
+			connection.query($sql.queryAll, function(err, results) {
+				//console.dir(result);
+				var str = JSON.stringify(results);
+				//console.dir(str);
 				var json = JSON.parse(str);
-				console.dir(json);
-				res.render('all-users', {
+				//console.dir(json);
+				res.render('allUsers', {
 					results: json
 				});
 				//jsonWrite(res, result);

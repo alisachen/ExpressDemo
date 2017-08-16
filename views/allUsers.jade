@@ -1,0 +1,21 @@
+extends layout
+
+block content
+    div All Users
+
+    table
+        thead
+            tr
+                td ID
+                td Name
+                td Age
+                td Gender
+        tbody
+            each result, i in results
+                tr(class=(i%2 == 0?'odd':'even'))
+                    td #{result.id}
+                    td #{result.name}
+                    td #{result.age}
+                    td 
+                        input(type='checkbox', name='gender', value='') Male
+                        input(type='checkbox', name='gender', value='') Female

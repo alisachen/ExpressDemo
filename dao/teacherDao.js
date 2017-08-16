@@ -95,5 +95,28 @@ module.exports = {
                 }             
             });
         });
+    },
+     queryAll: function (req, res, next) {
+        
+        mongoTeacher.then(db => {          
+            db.collection('Teacher').find({}, {"_id": 0}).toArray(function(err, results){
+                if(err){
+                    throw new Error('Error: query by name');
+                }else{
+                    // console.log(results);
+                    var str = JSON.stringify(results);
+				    //console.dir(str);
+				    var json = JSON.parse(str);
+				    //console.dir(json);
+				    res.render('allTeachers', {
+					    results: json
+				    });
+                    // res.json(results);
+                }             
+            });
+        });
     }
 };
+
+
+

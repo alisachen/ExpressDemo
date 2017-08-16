@@ -27,5 +27,9 @@ router.get('/queryBySid', function(req, res, next){
   teacherDao.queryBySid(req, res, next);
 });
 
+router.get('/queryAll', function(req, res, next){
+  teacherDao.queryAll(req, res, next);
+})
+
 
 module.exports = router;
